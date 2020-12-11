@@ -2,123 +2,6 @@
 <html>
 
 <head>
-  <title></title>
-</head>
-
-<body>
-
-  <link href='https://fonts.googleapis.com/css?family=Montserrat|Cardo' rel='stylesheet' type='text/css'>
-  <link href='style.css' rel='stylesheet' type='text/css'>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script>
-
-
-  <header class="main_h">
-
-    <div class="row">
-      <a class="logo" href="#">Home</a>
-
-      <div class="mobile-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      <nav>
-        <ul>
-          <li><a href=".sec01">Intro</a></li>
-          <li><a href=".sec02">Global Context</a></li>
-          <li><a href=".sec03">Product</a></li>
-          <li><a href=".sec04">Credits</a></li>
-        </ul>
-      </nav>
-
-    </div> <!-- / row -->
-
-  </header>
-
-  <div class="hero">
-
-    <h1><span>Welcome to</span><br>Neural Style Transfer Online automation</h1>
-  </div>
-
-  <div class="row content">
-    <h1 class="sec01">Introduction to my project</h1>
-    <p>
-      Program about neural style transfer
-      This program is able to combine 2 different images into a single one
-      With condition of a content and style image of combination
-    </p>
-
-    <img src="nst_result.png" width="500" height="300">
-    <p>Figure 1: Example picture of the structure between content and style and stylized content images/results</p>
-
-    <h1 class="sec02">Global Context Connections</h1>
-    <p>
-      Chosen global context is about personal and cultural expressions
-      Because of the representative images from the stylized content image
-    </p>
-
-    <h1 class="sec03">Product Model</h1>
-    <h2>
-      Advantage and Disadvantage of High Quality process and fast process implementations
-    </h2>
-    <p>
-      Fast process:
-      Advantage is that the fast processing from the name itself, it's much faster to process the AI
-      Disadvantage is that the final result/stylized content image is not better or the same as the high-quality process
-
-      High quality process:
-      Advantage is that the result of the image/stylized content image will have better quality result
-      Disadvantage is that the users need to take more time to wait for the proess is finished
-    </p>
-
-    <!-- Product/Model of the AI 
-    For the AI model, it needs to be used tensorflowjs implementation from python code
-    Tensorflowjs implementation, with javascript and JSON file integrations
-    -->
-
-    <p>
-      The inputs are above and there are 2 boxes,
-      First is the input images for the content image. The stylized content image will have based picture from the
-      content image
-
-      Second is the input images for the style image. The stylized content image will have theme or aesthethics based
-      picture from the style image
-    </p>
-
-    <img src="nst_result.png" width="500" height="300">
-    <p>Figure 2: Illustraction of the content and style and stylized content image
-    </p>
-
-    <h1 class="sec04">Credits</h1>
-    <h2>
-      Tools and Libraries and Frameworks used
-    </h2>
-    <p>
-      1. Tensorflow integrated with Keras
-    </p>
-    <p>
-      2. Netlify
-    </p>
-    <p>
-      3. Google Colaboratory
-    </p>
-    <h2>
-      Sources and Important topics about the AI and website
-    </h2>
-    <p>
-      Link Sources
-      Freecodecamp
-      w3school
-      tensorflow
-      keras
-      netlify
-      dev ed
-      research papers
-      etc
-    </p>
-  </div>
-
   <style>
     .main_h {
       position: fixed;
@@ -352,43 +235,164 @@
     }
   </style>
 
+  <link href='https://fonts.googleapis.com/css?family=Montserrat|Cardo' rel='stylesheet' type='text/css'>
+  <link href='style.css' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script>
+
+
+  <header class="main_h">
+
+    <div class="row">
+      <a class="logo" href="#">Home</a>
+
+      <div class="mobile-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href=".Intro">Intro</a></li>
+          <li><a href=".Global_Context">Global Context</a></li>
+          <li><a href=".Product">Product</a></li>
+          <li><a href=".Credits">Credits</a></li>
+        </ul>
+      </nav>
+
+    </div> <!-- / row -->
+
+  </header>
+
+  <div class="hero">
+
+    <h1><span>Welcome to</span><br>Neural Style Transfer Online automation</h1>
+  </div>
+
+  <div class="row content">
+    <h1 class="Intro">Introduction to my project</h1>
+    <p>
+      Program about neural style transfer
+      This program is able to combine 2 different images into a single piece of artwork, with a condition for a content and style image needed for input for image processing blending altogether.
+    </p>
+
+    <img src="nst_result.png" width="500" height="300">
+    <p>Figure 1: Example picture of the structure between content and style and stylized content images/results</p>
+
+    <h1 class="Global_Context">Global Context Connections</h1>
+    <p>
+      Global context connection is about the expressions by our personality and personal things and by our own cultural respects.
+      Because of the representative images from the stylized content image, which will combine something and another thing related to the expressions image.
+    </p>
+
+    <h1 class="Product">Product Model</h1>
+    <h2>
+      Advantage and Disadvantage of High Quality process and fast process implementations
+    </h2>
+    <p>
+      Fast process:
+      Advantage is that the fast processing from the name itself, it's much faster to process the AI
+      Disadvantage is that the final result/stylized content image is not better or the same as the high-quality process
+
+      High quality process:
+      Advantage is that the result of the image/stylized content image will have better quality result
+      Disadvantage is that the users need to take more time to wait for the proess is finished
+    </p>
+
+    <!-- Product/Model of the AI 
+    For the AI model, it needs to be used tensorflowjs implementation from python code
+    Tensorflowjs implementation, with javascript and JSON file integrations
+    -->
+
+    <p>
+      The inputs are above and there are 2 boxes,
+      First is the input images for the content image. The stylized content image will have based picture from the
+      content image
+
+      Second is the input images for the style image. The stylized content image will have theme or aesthethics based
+      picture from the style image
+    </p>
+
+    <img src="nst_result.png" width="500" height="300">
+    <p>Figure 2: Illustraction of the content and style and stylized content image
+    </p>
+
+    <h1 class="Credits">Credits</h1>
+    <h2>
+      Tools and Libraries and Frameworks used
+    </h2>
+    <ol type="1">
+      
+    </ol>
+    <p>
+      1. Tensorflow integrated with Keras for developing the AI model
+    </p>
+    <p>
+      2. Tensorflow.js for implementation of tensorflow python code into javascript web file
+    </p>
+    <p>
+      3. Google Colaboratory used for testing and writing the code for AI model
+    </p>
+    <p>
+      4. Visual Studio Code // Sublime Text 3, editor for writing the website
+    </p>
+    <p>
+      5. Github Pages used for hosting the website for free
+    </p>
+    <h2>
+      Sources and Important topics about the AI and website
+    </h2>
+    <ol type = "1">
+     <li>FreeCodeCamp</li>
+     <li>W3school</li>
+     <li>Tensorflow</li>
+     <li>Keras</li>
+     <li>Github pages</li>
+     <li>Dev Ed</li>
+     <li>Research papers</li>
+     <li>Etc.</li>
+    </ol>
+  </div>
+</head>
+
+<body>
   <script>
-    // Sticky Header
-    $(window).scroll(function () {
+      // Sticky Header
+      $(window).scroll(function () {
 
-      if ($(window).scrollTop() > 100) {
-        $('.main_h').addClass('sticky');
-      } else {
-        $('.main_h').removeClass('sticky');
-      }
-    });
+        if ($(window).scrollTop() > 100) {
+          $('.main_h').addClass('sticky');
+        } else {
+          $('.main_h').removeClass('sticky');
+        }
+      });
 
-    // Mobile Navigation
-    $('.mobile-toggle').click(function () {
-      if ($('.main_h').hasClass('open-nav')) {
-        $('.main_h').removeClass('open-nav');
-      } else {
-        $('.main_h').addClass('open-nav');
-      }
-    });
+      // Mobile Navigation
+      $('.mobile-toggle').click(function () {
+        if ($('.main_h').hasClass('open-nav')) {
+          $('.main_h').removeClass('open-nav');
+        } else {
+          $('.main_h').addClass('open-nav');
+        }
+      });
 
-    $('.main_h li a').click(function () {
-      if ($('.main_h').hasClass('open-nav')) {
-        $('.navigation').removeClass('open-nav');
-        $('.main_h').removeClass('open-nav');
-      }
-    });
+      $('.main_h li a').click(function () {
+        if ($('.main_h').hasClass('open-nav')) {
+          $('.navigation').removeClass('open-nav');
+          $('.main_h').removeClass('open-nav');
+        }
+      });
 
-    // navigation scroll lijepo radi materem
-    $('nav a').click(function (event) {
-      var id = $(this).attr("href");
-      var offset = 70;
-      var target = $(id).offset().top - offset;
-      $('html, body').animate({
-        scrollTop: target
-      }, 500);
-      event.preventDefault();
-    });
+      // navigation scroll lijepo radi materem
+      $('nav a').click(function (event) {
+        var id = $(this).attr("href");
+        var offset = 70;
+        var target = $(id).offset().top - offset;
+        $('html, body').animate({
+          scrollTop: target
+        }, 500);
+        event.preventDefault();
+      });
   </script>
 
 </body>
