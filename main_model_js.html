@@ -12,7 +12,7 @@
         // Defined the model
         model = undefined
         // Pass the github url model into this line of code for executing the model
-        model = await.tf.loadLayersModel("https://rawgithubusercontent.com/MS-092/PP_Development/main/model.json");
+        model = await.tfjs.loadLayersModel("https://rawgithubusercontent.com/MS-092/PP_Development/main/model.json");
         // After the model loaded, it will show this and tell the users that the model is loaded.
         alert("Model is loaded!");
       }
