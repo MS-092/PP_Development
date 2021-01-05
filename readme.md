@@ -1,11 +1,5 @@
-# PP_Dev
-
-## Code to see
-Code from Digital Design Website Button Project, for previewing the image picture from the chosen image
-
-## HTML elements
-So, there is an element called a display-mode: form in html elements. Tutorial in w3school html tutorials
-It will be used for making a slide form for the input images preview for the website and the chosen image and database
--> So, inside of the form input bar there will be:
-1. Upload file from local drive
-2. Some images that have been provided, the images are from the examples of the other contributors code reviews
+# PP Dev
+Code from Digital Design website button project, for preview the chosen images and the processing the images from the chosen images and the images processing from the AI model.
+1. The used case of previewing the images of the inputs and output images
+2. Making the inputs from the button upload images for users to interact with the inputs only.
+- Some images that have been provided, the images are from the examples used from other contributors for code reviews and other else projects.
