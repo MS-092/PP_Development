@@ -10,7 +10,7 @@
       z-index: 999;
       width: 100%;
       padding-top: 17px;
-      background: none;
+      background: white;
       overflow: hidden;
       -webkit-transition: all 0.3s;
       transition: all 0.3s;
@@ -63,6 +63,7 @@
     nav {
       float: right;
       width: 80%;
+      height: 80%
     }
 
     @media only screen and (max-width: 766px) {
@@ -171,6 +172,7 @@
       margin-bottom: 20px;
       font-size: 17px;
       line-height: 2;
+      color: black;
     }
 
     .content {
@@ -194,6 +196,7 @@
     .hero h1 {
       font-size: 50px;
       line-height: 1.3;
+      color: white;
     }
 
     .hero h1 span {
@@ -244,7 +247,7 @@
   .left {
     width: 50px;
     max-width: 800px;
-    background: #2d1832;
+    background: black;
     text-align: center;
   }
   </style>
@@ -299,7 +302,7 @@
       Because of the representative images from the stylized content image, which will combine something and another thing related to the expressions image.
     </p>
 
-    <h1 class="Product">Product Model</h1>
+    <h1 class="Product">Product</h1>
     <h2>
       Advantage and Disadvantage of High Quality process and fast process implementations
     </h2>
@@ -312,12 +315,6 @@
       Advantage is that the result of the image/stylized content image will have better quality result
       Disadvantage is that the users need to take more time to wait for the proess is finished
     </p>
-
-    <!-- Product/Model of the AI
-    For the AI model, it needs to be used tensorflowjs implementation from python code
-    Tensorflowjs implementation, with javascript and JSON file integrations
-    -->
-
     <p>
       The inputs are above and there are 2 boxes,
       First is the input images for the content image. The stylized content image will have based picture from the
@@ -327,65 +324,420 @@
       picture from the style image
     </p>
 
-    <img src="nst_result.png" width="500" height="300">
-    <p>Figure 2: Illustraction of the content and style and stylized content image
-    </p>
-
-
-
+    <!--Product of the AU model-->
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/4414288e8e.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@magenta/image@0.2.1/dist/magentaimage.min.js"></script>
+    <script src="jquery.js"></script>
     
-    <div class="container">
-      <div class="left">
-        <div class="frame">
-          <h2>Step 1. <label>upload photo <input type="file" onchange="loadContent(event)"></label></h2>
-          <img id="content" class="image" crossorigin="anonymous" />
+      <style>
+          .scanning{
+    margin:auto;
+    position:relative;
+    width:100%;
+  }
+  .scanning .screen
+  {
+    margin:auto;
+    width:100%;
+  }
+  .scanning em:before,  .scanning em:after, .scanning .screen:before,  .scanning .screen:after {
+    border-color: rgba(0, 0, 0, 0.8);
+    content: "";
+    position: absolute;
+    width: 19px;
+    height: 16px;
+    border-style: solid;
+    border-width: 0px;
+    z-index: 9999;
+  }
+  .scanning .screen:before {
+    left: 0;
+    top: 0;
+    border-left-width: 3px;
+    border-top-width: 3px;
+  }
+  .scanning .screen:after {
+    right: 0;
+    top: 0;
+    border-right-width: 3px;
+    border-top-width: 3px;
+  }
+  .scanning em:before {
+    left: 0;
+    bottom: 0;
+    border-left-width: 3px;
+    border-bottom-width: 3px;
+  }
+  .scanning em:after {
+    right: 0;
+    bottom: 0;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+  }
+  
+  .scanning .scan
+  {
+    width: 100%;
+    height: 15px;
+    background-color: rgba(20, 206, 97, 0.5);
+    position:absolute;
+    z-index:9999;
+    box-shadow:0px 0px 30px rgba(255,204,102,.5);
+    top: 0;
+  }
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    width: 100%;
+    font-size: 1.25rem;
+    /* 20px */
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+    text-align: center;
+    margin: 0;
+    /* 10px 20px */
+  }
+  
+  .no-js .inputfile + label {
+    display: none;
+  }
+  
+  .inputfile:focus + label,
+  .inputfile.has-focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+  }
+  
+  .inputfile + label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    /* 4px */
+    margin-right: 0.25em;
+    /* 4px */
+  }
+    
+  /* style red */
+  
+  .inputfile-red + label {
+    color: #f1e5e6;
+    background-color: #d3394c;
+  }
+  
+  .inputfile-red:focus + label,
+  .inputfile-red.has-focus + label,
+  .inputfile-red + label:hover {
+    background-color: #722040;
+  }
+
+/* style blue */
+
+.inputfile-blue + label {
+    color: #f1e5e6;
+    background-color: #064ead;
+}
+    
+.inputfile-blue:focus + label,
+.inputfile-blue.has-focus + label,
+.inputfile-blue + label:hover {
+    background-color: #073168;
+}
+
+  .fa-plus {
+      font-size: 2em;
+      color: green;
+  }
+
+  .btn-transfer {
+    background: #a0047e;
+    color: #f1e5e6;
+    font-weight: 700;
+    font-size: 1.25rem;
+    padding: 10px 30px;
+  }
+
+  .btn-transfer:hover {
+    color: #f1e5e6;
+    background: #460237;
+  }
+
+  #transfering {
+    font-size: 5em;
+    color: #a0047e;
+    margin-top: 10%;
+  }
+
+  .canvasContainer{
+    border: 1px dotted black;
+   } 
+
+   @media screen and (min-width: 768px) and (max-width: 992px) {
+    .fa-plus{
+        font-size: 2em;
+    }
+    .btn-transfer {
+        padding: 10px 10px;
+      }
+  }
+  @media screen and (min-width: 992px) {
+    .fa-plus{
+        font-size: 3em;
+    }
+  }
+
+  .arrowAnim {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .arrowAnim.top-to-bottom {
+    height : 50px;
+  }
+  
+  .arrow {
+    width: 10px;
+    height: 10px;
+    border: 2.5px solid;
+    
+  }
+  .arrowAnim.right-to-left  .arrow {
+    transform: rotate(-45deg);
+    border-color: #064ead transparent transparent #064ead;
+  }
+  .arrowAnim.rightTop-to-leftBottom  .arrow {
+    transform: rotate(-90deg);
+    border-color: #064ead transparent transparent #064ead;
+  }
+  .arrowAnim.left-to-right  .arrow {
+    transform: rotate(135deg);
+    border-color: #d3394c transparent transparent #d3394c;
+  }
+  .arrowAnim.leftTop-to-rightBottom  .arrow {
+    transform: rotate(180deg);
+    border-color: #d3394c transparent transparent #d3394c;
+  }
+  .arrowAnim.top-to-bottom  .arrow {
+    transform: rotate(-135deg);
+    border-color: #d3394c transparent transparent #a0047e;
+  }
+  
+  
+  .arrowAnim.left-to-right .arrowSliding {
+    position: absolute;
+    -webkit-animation: slide-left-to-right 4s linear infinite; 
+            animation: slide-left-to-right 4s linear infinite;
+  }
+  .arrowAnim.leftTop-to-rightBottom .arrowSliding {
+    position: absolute;
+    -webkit-animation: slide-leftTop-to-rightBottom 4s linear infinite; 
+            animation: slide-leftTop-to-rightBottom 4s linear infinite;
+  }
+  .arrowAnim.right-to-left .arrowSliding {
+    position: absolute;
+    -webkit-animation: slide-right-to-left 4s linear infinite; 
+            animation: slide-right-to-left 4s linear infinite;
+  }
+  .arrowAnim.rightTop-to-leftBottom .arrowSliding {
+    position: absolute;
+    -webkit-animation: slide-rightTop-to-leftBottom 4s linear infinite; 
+            animation: slide-rightTop-to-leftBottom 4s linear infinite;
+  }
+  .arrowAnim.top-to-bottom .arrowSliding {
+    position: absolute;
+    -webkit-animation: slide-top-to-bottom 4s linear infinite; 
+            animation: slide-top-to-bottom 4s linear infinite;
+  }
+
+  .arrowAnim.right-to-left .arrowSliding.delay1,
+  .arrowAnim.left-to-right .arrowSliding.delay1,
+  .arrowAnim.leftTop-to-rightBottom .arrowSliding.delay1, 
+  .arrowAnim.rightTop-to-leftBottom .arrowSliding.delay1,
+  .arrowAnim.top-to-bottom .arrowSliding.delay1 {
+    -webkit-animation-delay: 1s; 
+      animation-delay: 1s;
+  }
+  .arrowAnim.right-to-left .arrowSliding.delay2,
+  .arrowAnim.left-to-right .arrowSliding.delay2,
+  .arrowAnim.leftTop-to-rightBottom .arrowSliding.delay2, 
+  .arrowAnim.rightTop-to-leftBottom .arrowSliding.delay2,
+  .arrowAnim.top-to-bottom .arrowSliding.delay2 {
+    -webkit-animation-delay: 2s; 
+      animation-delay: 2s;
+  }
+  .arrowAnim.right-to-left .arrowSliding.delay3,
+  .arrowAnim.left-to-right .arrowSliding.delay3,
+  .arrowAnim.leftTop-to-rightBottom .arrowSliding.delay3, 
+  .arrowAnim.rightTop-to-leftBottom .arrowSliding.delay3,
+  .arrowAnim.top-to-bottom .arrowSliding.delay3 {
+    -webkit-animation-delay: 3s; 
+      animation-delay: 3s;
+  }
+  
+  @-webkit-keyframes slide-right-to-left {
+      0% { opacity:0; transform: translateX(5vw); }	
+     20% { opacity:1; transform: translateX(3vw); }	
+     80% { opacity:1; transform: translateX(-3vw); }	
+    100% { opacity:0; transform: translateX(-5vw); }	
+  }
+  @keyframes slide-right-to-left {
+      0% { opacity:0; transform: translateX(5vw); }	
+     20% { opacity:1; transform: translateX(3vw); }	
+     80% { opacity:1; transform: translateX(-3vw); }	
+    100% { opacity:0; transform: translateX(-5vw); }	
+  }
+  @-webkit-keyframes slide-rightTop-to-leftBottom {
+      0% { opacity:0; transform: translateX(5vw) translateY(5vw); }	
+     20% { opacity:1; transform: translateX(3vw) translateY(3vw); }	
+     80% { opacity:1; transform: translateX(-3vw) translateY(-3vw); }	
+    100% { opacity:0; transform: translateX(-5vw) translateY(-5vw); }	
+  }
+  @keyframes slide-rightTop-to-leftBottom {
+      0% { opacity:0; transform: translateX(5vw) translateY(-5vw); }	
+     20% { opacity:1; transform: translateX(3vw) translateY(-3vw); }	
+     80% { opacity:1; transform: translateX(-3vw) translateY(3vw); }	
+    100% { opacity:0; transform: translateX(-5vw) translateY(5vw); }	
+  }
+  @-webkit-keyframes slide-left-to-right {
+      0% { opacity:0; transform: translateX(-5vw); }	
+     20% { opacity:1; transform: translateX(-3vw); }	
+     80% { opacity:1; transform: translateX(3vw); }	
+    100% { opacity:0; transform: translateX(5vw); }	
+  }
+  @keyframes slide-left-to-right {
+      0% { opacity:0; transform: translateX(-5vw); }	
+     20% { opacity:1; transform: translateX(-3vw); }	
+     80% { opacity:1; transform: translateX(3vw); }	
+    100% { opacity:0; transform: translateX(5vw); }		
+  }
+  @-webkit-keyframes slide-leftTop-to-rightBottom {
+     0% { opacity:0; transform: translateX(-5vw) translateY(-5vw); }	
+    20% { opacity:1; transform: translateX(-3vw) translateY(-3vw); }	
+    80% { opacity:1; transform: translateX(3vw) translateY(3vw); }	
+   100% { opacity:0; transform: translateX(5vw) translateY(5vw); }	
+  }
+  @keyframes slide-leftTop-to-rightBottom {
+     0% { opacity:0; transform: translateX(-5vw) translateY(-5vw); }	
+    20% { opacity:1; transform: translateX(-3vw) translateY(-3vw); }	
+    80% { opacity:1; transform: translateX(3vw) translateY(3vw); }	
+   100% { opacity:0; transform: translateX(5vw) translateY(5vw); }	
+  }
+  @-webkit-keyframes slide-top-to-bottom {
+     0% { opacity:0; transform: translateY(-40px); }	
+    20% { opacity:1; transform: translateY(-30px); }	
+    80% { opacity:1; transform: translateY(10px); }	
+   100% { opacity:0; transform: translateY(20px); }	
+  }
+    @keyframes slide-top-to-bottom {
+     0% { opacity:0; transform: translateY(-40px); }	
+    20% { opacity:1; transform: translateY(-30px); }	
+    80% { opacity:1; transform: translateY(10px); }	
+   100% { opacity:0; transform: translateY(20px); }	
+  }
+
+  </style>
+      
+  <main>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-12 col-md-4 text-center">
+          <div class="box">
+            <input type="file" id="contentFile" target="content" class="inputfile inputfile-red"
+              data-multiple-caption="{count} files selected" multiple />
+            <label for="contentFile">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                <path
+                  d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" />
+              </svg>
+              <span>Pick your own photo </span>
+            </label>
+          </div>
+          <div class="imageContainer">
+            <div class="scan scan-content"></div>
+            <div class="screen">
+              <img class="col-12 p-0" id="contentImg" src="images/turtle.jpg" />
+            </div>
+            <em></em>
+          </div>
         </div>
-        <div class="right">
-          <div class="frame">
-            <h2>Step 2. <label>upload style <input type="file" onchange="loadStyle(event)"></label></h2>
-            <img id="style" class="image" crossorigin="anonymous" />
+          <div class="col-12 text-center p-0 pt-3 pb-3">
+            <button class="btn btn-transfer">
+              <i class="fas fa-random"></i>
+              <span>Click to transfer</span>
+            </button>
+          </div>
+        <div class="col-12 col-md-4 text-center">
+          <div class="box">
+            <input type="file" id="styleFile" target="style" class="inputfile inputfile-blue"
+              data-multiple-caption="{count} files selected" multiple />
+            <label for="styleFile">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                <path
+                  d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" />
+              </svg>
+              <span>Pick your own style </span>
+            </label>
+          </div>
+          <div class="imageContainer">
+            <div class="scan scan-style"></div>
+            <div class="screen">
+              <img class="col-12 p-0" id="styleImg" src="images/kadinsky.jpg" />
+            </div>
+            <em></em>
           </div>
         </div>
       </div>
+      <div class="row d-block d-md-none">
+        <div class="col-10 col-md-6 col-lg-4 offset-1 offset-md-3 offset-lg-4 text-center pt-3 pb-2">
+          <button class="btn btn-transfer">
+            <i class="fas fa-random"></i>
+            <span>Click to transfer</span>
+          </button>
+        </div>
+      <div class="row m-md-3">
+        <div class="col-12 col-md-4 offset-md-4 text-center">
+          <div class="canvasContainer col-12 p-0" style="height: 183.55px;">
+            <i id="transfering" class="fas fa-spinner fa-spin d-none" aria-hidden="true"></i>
+            <canvas id="stylized" class="d-none"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 
-
-
+  <script src="style-transfer.js"></script>
 
     <h1 class="Credits">Credits</h1>
-    <h2>
-      Tools and Libraries and Frameworks used
-    </h2>
-    <ol type="1">
-
-    </ol>
-    <p>
-      1. Tensorflow integrated with Keras for developing the AI model
-    </p>
-    <p>
-      2. Tensorflow.js for implementation of tensorflow python code into javascript web file
-    </p>
-    <p>
-      3. Google Colaboratory used for testing and writing the code for AI model
-    </p>
-    <p>
-      4. Visual Studio Code // Sublime Text 3, editor for writing the website
-    </p>
-    <p>
-      5. Github Pages used for hosting the website for free
-    </p>
     <h2>
       Sources and Important topics about the AI and website
     </h2>
     <ol type = "1">
-     <li>FreeCodeCamp</li>
-     <li>W3school</li>
-     <li>Tensorflow</li>
-     <li>Keras</li>
-     <li>Github pages</li>
-     <li>Dev Ed</li>
-     <li>Research papers</li>
-     <li>Etc.</li>
-    </ol>
+     <li>Tensorflow integrated with Keras for developing the AI model</li>
+     <li>Tensorflow.js for implementation of tensorflow python code into javascript web file</li>
+     <li>Google Colaboratory used for testing and writing the code for AI model</li>
+     <li>Visual Studio Code // Sublime Text 3, editor for writing the website</li>
+     <li>Github Pages used for hosting the website for free</li>
+     </ol>
   </div>
 </head>
 
