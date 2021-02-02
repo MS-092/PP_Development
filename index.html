@@ -20,7 +20,7 @@
       font-family: "Montserrat", sans-serif;
     }
 
-    @media only screen and (max-width: 766px) {
+    @media only screen and (max-width: 1000px) {
       .main_h {
         padding-top: 25px;
       }
@@ -54,7 +54,7 @@
       margin-bottom: 10px;
     }
 
-    @media only screen and (max-width: 766px) {
+    @media only screen and (min-width: 100px) {
       .logo {
         float: none;
       }
@@ -122,7 +122,7 @@
       transition: all 200ms ease-in;
     }
 
-    @media only screen and (max-width: 766px) {
+    @media only screen and (max-width: 100px) {
       .mobile-toggle {
         display: block;
       }
@@ -140,7 +140,7 @@
     .row {
       width: 100%;
       max-width: 940px;
-      margin: 0 auto;
+      margin: 0 100;
       position: relative;
       padding: 0 2%;
     }
@@ -303,25 +303,13 @@
     </p>
 
     <h1 class="Product">Product</h1>
-    <h2>
-      Advantage and Disadvantage of High Quality process and fast process implementations
-    </h2>
-    <p>
-      Fast process:
-      Advantage is that the fast processing from the name itself, it's much faster to process the AI
-      Disadvantage is that the final result/stylized content image is not better or the same as the high-quality process
-
-      High quality process:
-      Advantage is that the result of the image/stylized content image will have better quality result
-      Disadvantage is that the users need to take more time to wait for the proess is finished
-    </p>
     <p>
       The inputs are above and there are 2 boxes,
       First is the input images for the content image. The stylized content image will have based picture from the
-      content image
+      content image. The box is colour red.
 
       Second is the input images for the style image. The stylized content image will have theme or aesthethics based
-      picture from the style image
+      picture from the style image. The box is colour blue.
     </p>
 
     <!--Product of the AU model-->
@@ -334,8 +322,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@magenta/image@0.2.1/dist/magentaimage.min.js"></script>
     <script src="jquery.js"></script>
     
-      <style>
-          .scanning{
+    <style>
+      {.scanning
     margin:auto;
     position:relative;
     width:100%;
@@ -401,7 +389,7 @@
 }
 
 .inputfile + label {
-    width: 100%;
+    width: 100;
     font-size: 1.25rem;
     /* 20px */
     font-weight: 700;
@@ -436,12 +424,15 @@
     margin-right: 0.25em;
     /* 4px */
   }
-    
+  
+  
   /* style red */
   
   .inputfile-red + label {
     color: #f1e5e6;
     background-color: #d3394c;
+    min-width: 1000px;
+    object-position: left;
   }
   
   .inputfile-red:focus + label,
@@ -455,6 +446,7 @@
 .inputfile-blue + label {
     color: #f1e5e6;
     background-color: #064ead;
+    min-width: 1000px;
 }
     
 .inputfile-blue:focus + label,
@@ -462,11 +454,6 @@
 .inputfile-blue + label:hover {
     background-color: #073168;
 }
-
-  .fa-plus {
-      font-size: 2em;
-      color: green;
-  }
 
   .btn-transfer {
     background: #a0047e;
@@ -478,71 +465,33 @@
 
   .btn-transfer:hover {
     color: #f1e5e6;
-    background: #460237;
+    background: #da78c4;
   }
 
   #transfering {
     font-size: 5em;
     color: #a0047e;
-    margin-top: 10%;
+    margin-top: 100%;
   }
 
   .canvasContainer{
     border: 1px dotted black;
    } 
 
-   @media screen and (min-width: 768px) and (max-width: 992px) {
-    .fa-plus{
-        font-size: 2em;
-    }
+   @media screen and (min-width: 1000px) {
     .btn-transfer {
         padding: 10px 10px;
       }
   }
-  @media screen and (min-width: 992px) {
-    .fa-plus{
-        font-size: 3em;
-    }
-  }
 
-  .arrowAnim {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  @media (min-width: 1000px) {
+  .col-md-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
   }
-  .arrowAnim.top-to-bottom {
-    height : 50px;
+   
   }
-  
-  .arrow {
-    width: 10px;
-    height: 10px;
-    border: 2.5px solid;
-    
-  }
-  .arrowAnim.right-to-left  .arrow {
-    transform: rotate(-45deg);
-    border-color: #064ead transparent transparent #064ead;
-  }
-  .arrowAnim.rightTop-to-leftBottom  .arrow {
-    transform: rotate(-90deg);
-    border-color: #064ead transparent transparent #064ead;
-  }
-  .arrowAnim.left-to-right  .arrow {
-    transform: rotate(135deg);
-    border-color: #d3394c transparent transparent #d3394c;
-  }
-  .arrowAnim.leftTop-to-rightBottom  .arrow {
-    transform: rotate(180deg);
-    border-color: #d3394c transparent transparent #d3394c;
-  }
-  .arrowAnim.top-to-bottom  .arrow {
-    transform: rotate(-135deg);
-    border-color: #d3394c transparent transparent #a0047e;
-  }
-  
-  
+ 
   .arrowAnim.left-to-right .arrowSliding {
     position: absolute;
     -webkit-animation: slide-left-to-right 4s linear infinite; 
@@ -654,78 +603,338 @@
     80% { opacity:1; transform: translateY(10px); }	
    100% { opacity:0; transform: translateY(20px); }	
   }
+    </style>
 
-  </style>
-      
-  <main>
-    <div class="container mt-3">
-      <div class="row">
-        <div class="col-12 col-md-4 text-center">
-          <div class="box">
-            <input type="file" id="contentFile" target="content" class="inputfile inputfile-red"
-              data-multiple-caption="{count} files selected" multiple />
-            <label for="contentFile">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
-                <path
-                  d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" />
-              </svg>
-              <span>Pick your own photo </span>
-            </label>
-          </div>
-          <div class="imageContainer">
-            <div class="scan scan-content"></div>
-            <div class="screen">
-              <img class="col-12 p-0" id="contentImg" src="images/turtle.jpg" />
+  <html>
+  
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/style-transfer.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/4414288e8e.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@magenta/image@0.2.1/dist/magentaimage.min.js"></script>
+    <script src="jquery.js"></script>
+  </head>
+  
+  <body>
+    <main>
+      <div class="container mt-3">
+        <div class="row">
+          <div class="col-12 col-md-4 text-center">
+            <div class="box">
+              <input type="file" id="contentFile" target="content" class="inputfile inputfile-red"
+                data-multiple-caption="{count} files selected" multiple />
+              <label for="contentFile">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                  <path
+                    d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" />
+                </svg>
+                <span>Upload File</span>
+              </label>
             </div>
-            <em></em>
+            <div class="imageContainer">
+              <div class="scan scan-content"></div>
+              <div class="screen">
+                <img class="col-12 p-0" id="contentImg" src="" />
+              </div>
+              <em></em>
+            </div>
+          </div>
+          <div class="col-md-4 text-center pt-md-4 mt-md-4 pt-lg-5 mt-lg-5 d-none d-md-block">
+            <div class="row">
+              <div class="col-4 mt-3">
+                <div class="arrowAnim left-to-right">
+                  <div class="arrowSliding">
+                    <div class="arrow"></div>
+                  </div>
+                  <div class="arrowSliding delay1">
+                    <div class="arrow"></div>
+                  </div>
+                  <div class="arrowSliding delay2">
+                    <div class="arrow"></div>
+                  </div>
+                  <div class="arrowSliding delay3">
+                    <div class="arrow"></div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-4 mt-3">
+                <div class="arrowAnim right-to-left">
+                  <div class="arrowSliding">
+                    <div class="arrow"></div>
+                  </div>
+                  <div class="arrowSliding delay1">
+                    <div class="arrow"></div>
+                  </div>
+                  <div class="arrowSliding delay2">
+                    <div class="arrow"></div>
+                  </div>
+                  <div class="arrowSliding delay3">
+                    <div class="arrow"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 text-center p-0 pt-3 pb-3">
+              <button class="btn btn-transfer">
+                <i class="fas fa-random"></i>
+                <span>Process images</span>
+              </button>
+            </div>
+            <div class="col-12 arrowAnim top-to-bottom">
+              <div class="arrowSliding">
+                <div class="arrow"></div>
+              </div>
+              <div class="arrowSliding delay1">
+                <div class="arrow"></div>
+              </div>
+              <div class="arrowSliding delay2">
+                <div class="arrow"></div>
+              </div>
+              <div class="arrowSliding delay3">
+                <div class="arrow"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 text-center">
+            <div class="box">
+              <input type="file" id="styleFile" target="style" class="inputfile inputfile-blue"
+                data-multiple-caption="{count} files selected" multiple />
+              <label for="styleFile">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                  <path
+                    d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" />
+                </svg>
+                <span>Upload File</span>
+              </label>
+            </div>
+            <div class="imageContainer">
+              <div class="scan scan-style"></div>
+              <div class="screen">
+                <img class="col-12 p-0" id="styleImg" src="" />
+              </div>
+              <em></em>
+            </div>
           </div>
         </div>
-          <div class="col-12 text-center p-0 pt-3 pb-3">
+        <div class="row d-block d-md-none">
+          <div class="row col-12 text-center p-0 m-0 mt-3">
+            <div class="col-4 mt-3">
+              <div class="arrowAnim leftTop-to-rightBottom">
+                <div class="arrowSliding">
+                  <div class="arrow"></div>
+                </div>
+                <div class="arrowSliding delay1">
+                  <div class="arrow"></div>
+                </div>
+                <div class="arrowSliding delay2">
+                  <div class="arrow"></div>
+                </div>
+                <div class="arrowSliding delay3">
+                  <div class="arrow"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-4 mt-3">
+              <div class="arrowAnim rightTop-to-leftBottom">
+                <div class="arrowSliding">
+                  <div class="arrow"></div>
+                </div>
+                <div class="arrowSliding delay1">
+                  <div class="arrow"></div>
+                </div>
+                <div class="arrowSliding delay2">
+                  <div class="arrow"></div>
+                </div>
+                <div class="arrowSliding delay3">
+                  <div class="arrow"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row d-block d-md-none">
+          <div class="col-10 col-md-6 col-lg-4 offset-1 offset-md-3 offset-lg-4 text-center pt-3 pb-2">
             <button class="btn btn-transfer">
               <i class="fas fa-random"></i>
-              <span>Click to transfer</span>
+              <span>Click to transfer/span>
             </button>
           </div>
-        <div class="col-12 col-md-4 text-center">
-          <div class="box">
-            <input type="file" id="styleFile" target="style" class="inputfile inputfile-blue"
-              data-multiple-caption="{count} files selected" multiple />
-            <label for="styleFile">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
-                <path
-                  d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" />
-              </svg>
-              <span>Pick your own style </span>
-            </label>
-          </div>
-          <div class="imageContainer">
-            <div class="scan scan-style"></div>
-            <div class="screen">
-              <img class="col-12 p-0" id="styleImg" src="images/kadinsky.jpg" />
+          <div class="row">
+            <div class="arrowAnim top-to-bottom">
+              <div class="arrowSliding">
+                <div class="arrow"></div>
+              </div>
+              <div class="arrowSliding delay1">
+                <div class="arrow"></div>
+              </div>
+              <div class="arrowSliding delay2">
+                <div class="arrow"></div>
+              </div>
+              <div class="arrowSliding delay3">
+                <div class="arrow"></div>
+              </div>
             </div>
-            <em></em>
           </div>
         </div>
-      </div>
-      <div class="row d-block d-md-none">
-        <div class="col-10 col-md-6 col-lg-4 offset-1 offset-md-3 offset-lg-4 text-center pt-3 pb-2">
-          <button class="btn btn-transfer">
-            <i class="fas fa-random"></i>
-            <span>Click to transfer</span>
-          </button>
-        </div>
-      <div class="row m-md-3">
-        <div class="col-12 col-md-4 offset-md-4 text-center">
-          <div class="canvasContainer col-12 p-0" style="height: 183.55px;">
-            <i id="transfering" class="fas fa-spinner fa-spin d-none" aria-hidden="true"></i>
-            <canvas id="stylized" class="d-none"></canvas>
+        <div class="row m-md-3">
+          <div class="col-12 col-md-4 offset-md-4 text-center">
+            <div class="canvasContainer col-12 p-0" style="height: 231.688px;">
+              <i id="transfering" class="fas fa-spinner fa-spin d-none" aria-hidden="true"></i>
+              <canvas id="stylized" class="" width="350" height="230"></canvas>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </main>
 
-  <script src="style-transfer.js"></script>
+      </div>
+    </main>
+  
+    <script src="style-transfer.js"></script>
+  </body>
+
+  <script>
+    const model = new mi.ArbitraryStyleTransferNetwork();
+      const canvas = document.getElementById('stylized');
+      const ctx = canvas.getContext('2d');
+      const contentImg = document.getElementById('contentImg');
+      const styleImg = document.getElementById('styleImg');
+      let contentHeight;
+      let styleHeight;
+
+      $(document).ready(function () {
+        var inputs = document.querySelectorAll('.inputfile');
+        Array.prototype.forEach.call(inputs, function (input) {
+          var label = input.nextElementSibling,
+            labelVal = label.innerHTML;
+
+          input.addEventListener('change', function (e) {
+            var fileName = '';
+            if (this.files && this.files.length > 1)
+              fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
+            else
+              fileName = e.target.value.split('\\').pop();
+
+            if (fileName) {
+              label.querySelector('span').innerHTML = fileName;
+              if (this.attributes['target'].value == 'content') {
+                loadImage(e, contentImg);
+              } else if (this.attributes['target'].value == 'style') {
+                loadImage(e, styleImg);
+              }
+            }
+            else {
+              label.innerHTML = labelVal;
+            }
+          });
+
+          // Firefox bug fix
+          input.addEventListener('focus', function () { input.classList.add('has-focus'); });
+          input.addEventListener('blur', function () { input.classList.remove('has-focus'); });
+        });
+      });
+
+      $('#contentImg').on('load', function () {
+        contentHeight = $(this).height();
+        $('.canvasContainer').height(contentHeight);
+      }).each(function () {
+        if (this.complete) $(this).trigger('load');
+      });
+
+      $('#styleImg').on('load', function () {
+        styleHeight = $(this).height();
+      }).each(function () {
+        if (this.complete) $(this).trigger('load');
+      });
+
+      $(".btn-transfer").click(function () {
+        startTransfering();
+        model.initialize().then(() => {
+          stylize();
+        });
+      });
+
+      async function clearCanvas() {
+        // Don't block painting until we've reset the state.
+        await mi.tf.nextFrame();
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        await mi.tf.nextFrame();
+      }
+
+      async function stylize() {
+        await clearCanvas();
+
+        // Resize the canvas to be the same size as the source image.
+        canvas.width = contentImg.width;
+        canvas.height = contentImg.height;
+
+        // This does all the work!
+        model.stylize(contentImg, styleImg).then((imageData) => {
+          finishTransfering();
+          ctx.putImageData(imageData, 0, 0);
+        });
+      }
+
+      function loadImage(event, imgElement) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          imgElement.src = e.target.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+      }
+
+      function startTransfering() {
+        $('.imageContainer').addClass('scanning');
+        playScan();
+        $('#transfering').removeClass('d-none');
+        $('#stylized').addClass('d-none');
+      }
+
+      function finishTransfering() {
+        $('.imageContainer').removeClass('scanning');
+        $('#transfering').addClass('d-none');
+        $('#stylized').removeClass('d-none');
+      }
+
+      function playScan() {
+        $.keyframe.define([{
+          name: 'scan-content',
+          '0%': { 'top': '0px' },
+          '100%': { 'top': contentHeight - 15 }
+        }]);
+        $.keyframe.define([{
+          name: 'scan-style',
+          '0%': { 'top': styleHeight - 15 },
+          '100%': { 'top': '0px' }
+        }]);
+
+        $('.scan-content').resetKeyframe(function () {
+          $(".scan-content").playKeyframe({
+            name: 'scan-content',
+            duration: '3s',
+            timingFunction: 'linear',
+            delay: '0s',
+            iterationCount: 'infinite',
+            direction: 'alternate-reverse'
+          });
+        });
+
+        $('.scan-style').resetKeyframe(function () {
+          $(".scan-style").playKeyframe({
+            name: 'scan-style',
+            duration: '3s',
+            timingFunction: 'linear',
+            delay: '0s',
+            iterationCount: 'infinite',
+            direction: 'alternate-reverse'
+          });
+        });
+      }
+  </script>
 
     <h1 class="Credits">Credits</h1>
     <h2>
