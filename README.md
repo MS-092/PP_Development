@@ -1,4 +1,4 @@
-# PP_Development
+# Personal Project Development
 
 2020-2021 year range working on this project
 AI Neural Style Transfer implementation into website.
